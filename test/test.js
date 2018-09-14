@@ -6,8 +6,10 @@ import assert from 'assert'
 import jsdom from 'jsdom-global'
 
 describe('typed selector queries', function() {
+  let cleanup
+
   beforeEach(function() {
-    this.cleanup = jsdom()
+    cleanup = jsdom()
 
     if (!document.body) return
     document.body.innerHTML = `
@@ -25,7 +27,7 @@ describe('typed selector queries', function() {
   })
 
   afterEach(function() {
-    this.cleanup()
+    cleanup()
   })
 
   describe('query', function() {
