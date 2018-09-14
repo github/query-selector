@@ -87,12 +87,12 @@ describe('typed selector queries', function() {
 
     it('throws for failed selector match', function() {
       const child = query(document, '.child')
-      assert.throws(() => closest(document, '.missing'))
+      assert.throws(() => closest(child, '.missing'))
     })
 
     it('throws for selector match but type mismatch', function() {
       const child = query(document, '.child')
-      assert.throws(() => closest(document, '.parent', HTMLInputElement))
+      assert.throws(() => closest(child, '.parent', HTMLInputElement))
     })
   })
 
