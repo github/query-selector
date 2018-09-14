@@ -1,0 +1,68 @@
+{
+  "name": "@github/query-selector",
+  "version": "0.0.1",
+  "description": "A querySelector function for Flow.",
+  "repository": "github/query-selector",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "lint": "eslint index.js && flow check",
+    "prebuild": "npm run clean && npm run lint && mkdir dist",
+    "build-umd": "BABEL_ENV=umd babel index.js -o dist/index.umd.js && cp index.js.flow dist/index.umd.js.flow",
+    "build-esm": "BABEL_ENV=esm babel index.js -o dist/index.esm.js && cp index.js.flow dist/index.esm.js.flow",
+    "build": "npm run build-umd && npm run build-esm",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "flow",
+    "query"
+  ],
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.1",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-flow": "^7.0.0",
+    "babel-eslint": "^9.0.0",
+    "eslint": "^5.5.0",
+    "eslint-plugin-github": "^1.2.2",
+    "flow-bin": "^0.80.0",
+    "mocha": "^5.2.0"
+  },
+  "babel": {
+    "env": {
+      "esm": {
+        "presets": [
+          [
+            "@babel/env",
+            {
+              "modules": false
+            }
+          ],
+          "@babel/flow"
+        ]
+      },
+      "umd": {
+        "plugins": [
+          "@babel/plugin-transform-modules-umd"
+        ],
+        "presets": [
+          "@babel/env",
+          "@babel/flow"
+        ]
+      }
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:flowtype/recommended",
+      "plugin:github/es6",
+      "plugin:github/browser"
+    ],
+    "parser": "babel-eslint"
+  }
+}

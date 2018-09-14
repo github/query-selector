@@ -1,0 +1,13 @@
+/* @flow strict */
+
+type Queryable = Document | DocumentFragment | Element;
+
+declare export function closest(context: Queryable, selectors: string): HTMLElement;
+declare export function closest<T: Element>(context: Queryable, selectors: string, klass: Class<T>): T;
+declare export function query(context: Queryable, selectors: string): HTMLElement;
+declare export function query<T: Element>(context: Queryable, selectors: string, klass: Class<T>): T;
+declare export function querySelectorAll(context: Queryable, selectors: string): Array<HTMLElement>;
+declare export function querySelectorAll<T: Element>(context: Queryable, selectors: string, klass: Class<T>): Array<T>;
+declare export function namedItem(form: HTMLFormElement, itemName: string): HTMLInputElement;
+declare export function namedItem<T: HTMLElement>(form: HTMLFormElement, itemName: string, klass: Class<T>): T;
+declare export function getAttribute(element: Element, attributeName: string): string;
