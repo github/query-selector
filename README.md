@@ -96,6 +96,8 @@ are most often omitted.
 When using [Flow][], however, these tests become required to pass the
 type checker.
 
+[Flow]: https://flow.org
+
 The combination of null tests and subclass type refinements feels like we're
 working against the type system, rather than with it, which is the motivation
 for this library.
