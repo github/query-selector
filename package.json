@@ -7,11 +7,12 @@
   "module": "dist/index.esm.js",
   "scripts": {
     "clean": "rm -rf dist",
-    "lint": "eslint index.js && flow check",
+    "lint": "eslint index.js test/ && flow check",
     "prebuild": "npm run clean && npm run lint && mkdir dist",
     "build-umd": "BABEL_ENV=umd babel index.js -o dist/index.umd.js && cp index.js.flow dist/index.umd.js.flow",
     "build-esm": "BABEL_ENV=esm babel index.js -o dist/index.esm.js && cp index.js.flow dist/index.esm.js.flow",
     "build": "npm run build-umd && npm run build-esm",
+    "test": "BABEL_ENV=umd mocha --require @babel/register",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
@@ -27,10 +28,13 @@
     "@babel/core": "^7.0.1",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-flow": "^7.0.0",
+    "@babel/register": "^7.0.0",
     "babel-eslint": "^9.0.0",
     "eslint": "^5.5.0",
     "eslint-plugin-github": "^1.2.2",
     "flow-bin": "^0.80.0",
+    "jsdom": "^12.0.0",
+    "jsdom-global": "^3.0.2",
     "mocha": "^5.2.0"
   },
   "babel": {
