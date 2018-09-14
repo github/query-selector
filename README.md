@@ -22,7 +22,7 @@ An element must match the selector as well as the type for it to be returned.
 - `getAttribute(element, name)`
 
 ```js
-import {closest, getAttribute, query, querySelectorAll} from '@github/query-selector'
+import {closest, getAttribute, namedItem, query, querySelectorAll} from '@github/query-selector'
 
 // Find an element by selector and type, or throw if not found.
 const image: HTMLImageElement = query(document, '.avatar', HTMLImageElement)
@@ -40,6 +40,11 @@ for (const input of inputs) {
 
 // Retrieve the attribute's value or throw.
 const url: string = getAttribute(image, 'data-url')
+
+
+// Find the form's `input[name=login]` field or throw if not found.
+const form: HTMLFormElement = query(document, 'form', HTMLFormElement)
+const input: HTMLInputElement = namedItem(form, 'login')
 ```
 
 ## Motivation
