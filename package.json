@@ -1,7 +1,7 @@
 {
   "name": "@github/query-selector",
   "version": "0.0.1",
-  "description": "A querySelector function for Flow.",
+  "description": "Query the document tree by selector, filtering by element type.",
   "repository": "github/query-selector",
   "main": "dist/index.umd.js",
   "module": "dist/index.esm.js",
