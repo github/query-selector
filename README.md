@@ -41,7 +41,6 @@ for (const input of inputs) {
 // Retrieve the attribute's value or throw.
 const url: string = getAttribute(image, 'data-url')
 
-
 // Find the form's `input[name=login]` field or throw if not found.
 const form: HTMLFormElement = query(document, 'form', HTMLFormElement)
 const input: HTMLInputElement = namedItem(form, 'login')
@@ -91,20 +90,15 @@ if (el instanceof HTMLInputElement) {
 
 Because `document.querySelector` is so frequently used in web applications,
 and it's tedious to guard every element query with null checks, these tests
-are most often omitted.
-
-When using [Flow][], however, these tests become required to pass the
-type checker.
+are most often omitted. When using [Flow][], however, these tests become
+required to pass the type checker.
 
 [Flow]: https://flow.org
 
 The combination of null tests and subclass type refinements feels like we're
-working against the type system, rather than with it, which is the motivation
-for this library.
-
-These typed query functions consider a missing element, or an element of the
-wrong type, to be failed assertions and throw an exception to fail as early
-as possible.
+working against the type system, rather than with it. So, typed query functions
+consider a missing element, or an element of the wrong type, to be failed
+assertions and throw an exception to fail as early as possible.
 
 ## Development
 
