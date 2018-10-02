@@ -2,12 +2,11 @@
 
 type Queryable = Document | DocumentFragment | Element
 
-class InvariantError extends Error {
+class QueryError extends Error {
   framesToPop: number
 
   constructor(message) {
     super(message)
-    this.name = 'Invariant Violation'
     this.framesToPop = 1
   }
 }
@@ -18,7 +17,7 @@ export function closest<T: Element>(element: Element, selectors: string, type: C
   if (el instanceof klass) {
     return el
   }
-  throw new InvariantError(`Element not found: <${klass.name}> ${selectors}`)
+  throw new QueryError(`Element not found: <${klass.name}> ${selectors}`)
 }
 
 export function query<T: Element>(context: Queryable, selectors: string, type: Class<T>): T {
@@ -27,7 +26,7 @@ export function query<T: Element>(context: Queryable, selectors: string, type: C
   if (el instanceof klass) {
     return el
   }
-  throw new InvariantError(`Element not found: <${klass.name}> ${selectors}`)
+  throw new QueryError(`Element not found: <${klass.name}> ${selectors}`)
 }
 
 export function querySelectorAll<T: Element>(context: Queryable, selectors: string, type: Class<T>): Array<T> {
@@ -47,7 +46,7 @@ export function namedItem<T: HTMLElement>(form: HTMLFormElement, itemName: strin
   if (el instanceof klass) {
     return el
   }
-  throw new InvariantError(`Element not found by name: <${klass.name}> ${itemName}`)
+  throw new QueryError(`Element not found by name: <${klass.name}> ${itemName}`)
 }
 
 export function getAttribute(element: Element, attributeName: string): string {
@@ -55,5 +54,5 @@ export function getAttribute(element: Element, attributeName: string): string {
   if (attribute != null) {
     return attribute
   }
-  throw new InvariantError(`Attribute not found on element: ${attributeName}`)
+  throw new QueryError(`Attribute not found on element: ${attributeName}`)
 }
