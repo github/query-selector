@@ -21,6 +21,15 @@ const commentForm = formElements3[0];
 
 const usernameField = namedItem(commentForm, 'username');
 const nameField = namedItem(commentForm, 'name', HTMLInputElement);
-const emailField = namedItem<HTMLFormElement>(commentForm, 'email', HTMLInputElement);
-const mailinglistsField = namedItem<HTMLFormElement>(commentForm, 'mailinglists', RadioNodeList);
-const locationField = namedItem<HTMLFormElement>(commentForm, 'location', HTMLSelectElement);
+const emailField = namedItem<HTMLInputElement>(commentForm, 'email', HTMLInputElement);
+const mailinglistsField = namedItem<RadioNodeList>(commentForm, 'mailinglists', RadioNodeList);
+const locationField = namedItem<HTMLSelectElement>(commentForm, 'location', HTMLSelectElement);
+
+// Test that default types are indeed inferred properly
+const typedBody1: HTMLElement = bodyElement1;
+const typedBody2: HTMLBodyElement = bodyElement2;
+const typedFormElements2: Array<HTMLFormElement> = formElements2;
+const typedHtmlElement1: HTMLElement = htmlElement1;
+const typedHtmlElement2: HTMLHtmlElement = htmlElement2;
+const typeUsernameField: HTMLInputElement = usernameField;
+const typedNameField: HTMLInputElement = nameField;
