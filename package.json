@@ -13,7 +13,7 @@
     "build-umd": "BABEL_ENV=umd babel index.js -o dist/index.umd.js && cp index.js.flow dist/index.umd.js.flow",
     "build-esm": "BABEL_ENV=esm babel index.js -o dist/index.esm.js && cp index.js.flow dist/index.esm.js.flow",
     "build": "npm run build-umd && npm run build-esm && cp index.d.ts dist/index.d.ts",
-    "test": "BABEL_ENV=umd mocha --require @babel/register",
+    "test": "BABEL_ENV=umd mocha --require @babel/register && tsc --noEmit --strict test/test.ts",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
@@ -36,7 +36,8 @@
     "flow-bin": "^0.80.0",
     "jsdom": "^12.0.0",
     "jsdom-global": "^3.0.2",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "typescript": "^3.4.4"
   },
   "babel": {
     "env": {
