@@ -1,6 +1,6 @@
 {
   "name": "@github/query-selector",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Query the document tree by selector, filtering by element type.",
   "repository": "github/query-selector",
   "main": "dist/index.umd.js",
