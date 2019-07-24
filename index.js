@@ -30,8 +30,7 @@ export function query<T: Element>(context: Queryable, selectors: string, type: C
   throw new QueryError(`Element not found: <${klass.name}> ${selectors}`)
 }
 
-export function querySelectorAll<T: Element>(context: Queryable, selectors: string, type: Class<T>): Array<T> {
-  const klass = type || HTMLElement
+export function querySelectorAll<T: Element>(context: Queryable, selectors: string, klass: Class<T>): Array<T> {
   const els: Array<T> = []
   for (const el of context.querySelectorAll(selectors)) {
     if (el instanceof klass) {
