@@ -63,7 +63,7 @@ describe('typed selector queries', function() {
 
   describe('querySelectorAll', function() {
     it('finds all elements matching selector', function() {
-      const found = querySelectorAll(document, '.text')
+      const found = querySelectorAll(document, '.text', HTMLElement)
       assert.equal(found.length, 3)
       assert.equal(found[0].textContent, 'one')
       assert.equal(found[1].textContent, 'two')
