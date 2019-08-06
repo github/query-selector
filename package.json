@@ -14,7 +14,8 @@
     "build-esm": "BABEL_ENV=esm babel index.js -o dist/index.esm.js && cp index.js.flow dist/index.esm.js.flow",
     "build": "npm run build-umd && npm run build-esm && cp index.d.ts dist/index.d.ts",
     "test": "BABEL_ENV=umd mocha --require @babel/register && tsc --noEmit --strict test/test.ts",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "postpublish": "npm publish --ignore-scripts --@github:registry='https://npm.pkg.github.com'"
   },
   "keywords": [
     "flow",
