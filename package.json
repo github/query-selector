@@ -43,15 +43,7 @@
   "babel": {
     "env": {
       "esm": {
-        "presets": [
-          [
-            "@babel/env",
-            {
-              "modules": false
-            }
-          ],
-          "@babel/flow"
-        ]
+        "presets": ["@babel/flow"]
       },
       "umd": {
         "plugins": [
