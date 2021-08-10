@@ -19,7 +19,7 @@ An element must match the selector as well as the type for it to be returned.
 - `querySelectorAll(context, selector, klass)`
 - `closest(element, selector, klass)`
 - `namedItem(element, name, klass)`
-- `getAttribute(element, name)`
+- `getAttribute(element, name)` 
 
 ```js
 import {closest, getAttribute, namedItem, query, querySelectorAll} from '@github/query-selector'
@@ -32,7 +32,7 @@ image.src = '/hubot.png'
 const parent: HTMLDetailsElement = closest(image, '.container', HTMLDetailsElement)
 parent.open = true
 
-// Filter all children by selector and type.
+// Filter all children by selector and type. 
 const inputs: Array<HTMLInputElement> = querySelectorAll(document, 'input', HTMLInputElement)
 for (const input of inputs) {
   input.value = ''
